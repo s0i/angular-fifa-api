@@ -13,3 +13,8 @@ You'll need to install Bower
 Then simply run 'bower install'
 	
 	bower install
+
+Credits
+-------------
+- PixelBuddha.net for the flat loader
+- https://dribbble.com/msenyil for the flat flag assets
