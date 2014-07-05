@@ -1,4 +1,15 @@
-Fifa Scraper
-==============
-Getting the latest 2014 FIFA World Cup match data
---------------
+anuglar-fifa-api
+=============
+Usage
+-------------
+First, you want to open up NPM in your working directory
+	
+	cd angular-fifa-api
+	
+You'll need to install Bower
+
+  	npm install -g bower
+
+Then simply run 'npm install'
+	
+	bower install
