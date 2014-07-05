@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>FIFA World Cup 2014</title>
+		<link rel="stylesheet" type="text/css" href="style/style-redux.css">
+		<link rel="stylesheet" type="text/css" href="style/ui.css">
+		<link rel="stylesheet" type="text/css" href="style/animation.css">
+	</head>
+
+	<body ng-controller="FifaMatchControl" ng-app="fifaApp">
+		<div id="header">
+			<div id="query-holder">
+				<input id="query" autocomplete="off" placeholder="Search by team..." ng-model="query">
+				<select id="sort" ng-model="sortOrder" ng-options="option.value as option.name for option in options">
+					<option value="" default>Sort...</option>
+				</select>
+
+				<button id="clear" ng-click="sortOrder = undefined">Clear</button>
+				<button id="tomorrow" ng-click="getTomorrow()">Tomorrow</button>
+
+				<span class="no-results" ng-show="(matches | filter: query).length === 0">No results...</span>
+			</div>
+		</div>
+	
+		<div class="loader">
+			<img src="images/loader.gif" alt="loader">	
+		</div>
+
+		<div id="main" ng-hide="matches.length === 0">
+			<div id="matchups" ng-repeat="match in matches | orderBy:sortOrder | filter:query track by match.id" class="animate">
+				<div class="matchup-title-bar">
+					<div class="matchup-title-description">
+						<div class="matchup-score-left">
+							{{match.scoreAway}}
+						</div>
+						<div class="matchup-score-right">
+							{{match.scoreHome}}
+						</div>	
+						<div class="matchup-header">
+							<img ng-src="{{match.flagAway}}" alt="FlagAway" id="awayFlag">
+							<img ng-src="{{match.flagHome}}" alt="FlagHome" id="homeFlag">
+							<h1>{{match.teamAway + ' vs. ' + match.teamHome}}</h1>
+						</div>
+					</div>
+				</div>
+
+				<div class="matchup-description">
+					<h3>{{match.date}}</h3>
+					<h3>{{match.time}}</h3>
+					<h3>{{match.arena}}</h3>
+					<h3>{{match.group}}</h3>
+				</div>
+			</div>
+		</div>
+		<script src="lib/jquery.min.js"></script>
+		<script src="lib/angular.min.js"></script>
+		<script src="lib/angular-animate.min.js"></script>
+		<script src="lib/angular-route.min.js"></script>
+		<script src="lib/jquery.nicescroll.min.js"></script>
+		<script src="scripts/app.js"></script>
+		<script src="scripts/services/MatchService.js"></script>
+		<script src="scripts/controllers/MatchController.js"></script>
+		<script>
+			app.init();
+		</script>
+	</body>
+</html>
