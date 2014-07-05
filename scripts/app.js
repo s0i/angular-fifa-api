@@ -18,6 +18,8 @@ var app = (function() {
             $(this).css('visibility', 'hidden');
         });
 
+        // Have a problem where ng-repeat loads matches on top of fixed header
+        // This is just a workaround
         $(window).unload(function() {
             $(window).scrollTop(0);
             $('body').scrollTop(0);

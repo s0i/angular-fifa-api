@@ -3,6 +3,7 @@
 var fifaAppServices = angular.module('fifaAppServices', []);
 
 fifaAppServices.service('MatchService', function($http) {
+    // Here for now... Angular fails to work if I use this...
     this.getToday = function() {
         var promise = $http({
             method: 'GET',
