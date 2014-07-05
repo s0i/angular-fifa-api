@@ -10,6 +10,6 @@ You'll need to install Bower
 
   	npm install -g bower
 
-Then simply run 'npm install'
+Then simply run 'bower install'
 	
 	bower install
